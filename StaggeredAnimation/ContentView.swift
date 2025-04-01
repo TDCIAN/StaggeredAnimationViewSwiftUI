@@ -19,24 +19,24 @@ struct ContentView: View {
                         showView.toggle()
                     }
                     
-//                    let config = StaggeredConfig(
-//                        offset: .zero,
-//                        scale: 0.85,
-//                        scaleAnchor: .center
-//                    )
-                    
+                    // You can adjust StaggeredConfig
                     let config = StaggeredConfig(
-                        offset: .init(width: 0, height: 70),
+                        offset: .zero,
                         scale: 0.85,
                         scaleAnchor: .center
                     )
                     
+//                    let config = StaggeredConfig(
+//                        offset: .init(width: 0, height: 70),
+//                        scale: 0.85,
+//                        scaleAnchor: .center
+//                    )
+                    
+                    // MARK: Sample 1 - Grid View
                     LazyVGrid(columns: Array(repeating: GridItem(), count: 2)) {
                         StaggeredView(config: config) {
                             if showView {
                                 ForEach(1...10, id: \.self) { _ in
-//                                    DummyView()
-                                    
                                     RoundedRectangle(cornerRadius: 15)
                                         .fill(.black.gradient)
                                         .frame(height: 150)
@@ -45,6 +45,14 @@ struct ContentView: View {
                         }
                     }
                     
+                    // MARK: Sample 2 - DummyView
+//                    StaggeredView(config: config) {
+//                        if showView {
+//                            ForEach(1...10, id: \.self) { _ in
+//                                DummyView()
+//                            }
+//                        }
+//                    }
                     
                     Spacer(minLength: 0)
                 }
